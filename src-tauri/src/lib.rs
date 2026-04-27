@@ -73,12 +73,12 @@ use commands::{
     lock_session, save_config, session_status, setup_file_password, unlock_session,
 };
 
-/// 检测是否以绿色版（便携模式）运行：exe 同目录下存在 .portable 文件即为便携模式
+/// 检测是否以绿色版（便携模式）运行：exe 文件名包含 "portable" 即为便携模式
 #[tauri::command]
 fn is_portable() -> bool {
     std::env::current_exe()
         .ok()
-        .and_then(|p| p.parent().map(|dir| dir.join(".portable").exists()))
+        .and_then(|p| p.file_name().map(|n| n.to_string_lossy().to_lowercase().contains("portable")))
         .unwrap_or(false)
 }
 

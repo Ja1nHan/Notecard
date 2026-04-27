@@ -55,13 +55,14 @@ jobs:
         run: |
           $version = "${{ github.ref_name }}"
           $exePath = "src-tauri\target\release\NoteCard.exe"
+          $portableExe = "NoteCard-portable.exe"
           $zipName = "NoteCard_${version}_x64_portable.zip"
 
-          # Create .portable marker file (signals the app it's running as portable)
-          New-Item -ItemType File -Path ".portable" -Force | Out-Null
+          # Rename exe to include "portable" — app detects this at runtime
+          Copy-Item $exePath $portableExe
 
-          # Package exe + marker into zip
-          Compress-Archive -Path $exePath, ".portable" -DestinationPath $zipName -Force
+          # Package single renamed exe into zip
+          Compress-Archive -Path $portableExe -DestinationPath $zipName -Force
 
           echo "ZIP_NAME=$zipName" >> $env:GITHUB_ENV
 
