@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getVersion } from '@tauri-apps/api/app';
 import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useUpdateStore, performUpdate } from '../../stores/useUpdateStore';
@@ -35,6 +36,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
   const autoLockMinutes = useSettingsStore((s) => s.autoLockMinutes);
   const setAutoLockMinutes = useSettingsStore((s) => s.setAutoLockMinutes);
 
+  const [appVersion, setAppVersion] = useState('');
   const [pwModal, setPwModal] = useState<PwModal>(null);
   const [confirmRemove, setConfirmRemove] = useState(false);
   const [updateStatus, setUpdateStatus] = useState<'idle' | UpdateStatus>('idle');
@@ -42,6 +44,10 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
   const ignoreUpdate = useUpdateStore((s) => s.ignoreUpdate);
 
   const currentLang = i18n.language as Language;
+
+  useEffect(() => {
+    getVersion().then(setAppVersion).catch(() => {});
+  }, []);
 
   async function handleCheckUpdate() {
     await performUpdate((status) => setUpdateStatus(status));
@@ -194,7 +200,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
 
           {/* 版本 / 更新 */}
           <div className="settings-version">
-            <span>v0.1</span>
+            <span>{appVersion ? `v${appVersion}` : ''}</span>
             <button
               className="settings-update-btn"
               onClick={handleCheckUpdate}
