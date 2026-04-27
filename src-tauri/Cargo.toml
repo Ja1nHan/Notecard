@@ -1,6 +1,6 @@
 [package]
 name = "notecard"
-version = "0.1.1"
+version = "0.1.2"
 description = "NoteCard - 本地卡片记录工具"
 authors = []
 edition = "2021"
