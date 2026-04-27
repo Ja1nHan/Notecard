@@ -8,8 +8,7 @@
 
 一个轻量的本地卡片笔记工具，告别桌面一堆 txt。
 
-[![Release](https://img.shields.io/github/v/release/Ja1nHan/Notecard?style=flat-square)](https://github.com/Ja1nHan/Notecard/releases/latest)
-[![License](https://img.shields.io/github/license/Ja1nHan/Notecard?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)](#下载)
 
 </div>
