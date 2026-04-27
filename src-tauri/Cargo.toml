@@ -1,0 +1,45 @@
+[package]
+name = "notecard"
+version = "0.1.0"
+description = "NoteCard - 本地卡片记录工具"
+authors = []
+edition = "2021"
+
+[lib]
+name = "notecard_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+aes-gcm = "0.10"
+argon2 = "0.5"
+rand = "0.8"
+zeroize = { version = "1", features = ["derive"] }
+base64 = "0.22"
+thiserror = "2"
+dirs = "5"
+tauri-plugin-window-state = "2.4.1"
+tauri-plugin-updater = "2"
+tauri-plugin-process = "2"
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.52"
+
+[profile.release]
+opt-level     = 3       # 最大速度优化
+lto           = true    # 全链接时优化，减小体积 ~15-25%
+codegen-units = 1       # 单 CGU，更好内联，配合 lto 使用
+strip         = true    # 剥除调试符号，缩小二进制
+panic         = "abort" # 去除 unwinding 代码，减小体积
+
+[profile.dev]
+opt-level = 1           # dev 不完全禁优化，避免 Argon2 在调试模式极慢
+

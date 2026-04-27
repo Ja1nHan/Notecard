@@ -1,0 +1,159 @@
+{
+  "titlebar": {
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "close": "Close"
+  },
+  "fileMenu": {
+    "ops": "File Operations",
+    "new": "New .ncard",
+    "open": "Open .ncard",
+    "recent": "Recent"
+  },
+  "sidebar": {
+    "categories": "Categories",
+    "newCategory": "New Category",
+    "settings": "Settings"
+  },
+  "tab": {
+    "encryptCategory": "Encrypt Category",
+    "unlockCategory": "Enter Password to Unlock",
+    "removeEncryption": "Remove Encryption",
+    "deleteCategory": "Delete Category"
+  },
+  "tabList": {
+    "wrongPassword": "Wrong password",
+    "unlockFile": "Unlock File",
+    "setupPassword": "Set File Password",
+    "passwordLostWarning": "Password cannot be recovered if lost.",
+    "verifyToRemove": "Verify Password to Remove Encryption",
+    "deleteCategory": "Delete Category",
+    "untitled": "Untitled",
+    "delete": "Delete"
+  },
+  "cards": {
+    "noCategory": "No category selected",
+    "categoryEncrypted": "This category is encrypted",
+    "hint": "Hint: {{hint}}",
+    "viewContent": "View Content",
+    "unlock": "Enter Password to Unlock",
+    "noResults": "No matches found, or content is encrypted and locked",
+    "empty": "No cards yet. Click \"New Card\" to start.",
+    "unlockFile": "Unlock File"
+  },
+  "welcome": {
+    "desc": "Securely store your passwords and notes",
+    "openFile": "Open File",
+    "newFile": "New File",
+    "recentFiles": "Recent",
+    "backups": "Available Backups",
+    "unknownTime": "Unknown time",
+    "restoreBackup": "Restore this backup",
+    "deleteBackup": "Delete this backup",
+    "confirmDeleteBackup": "Delete backup \"{{name}}\"? This cannot be undone."
+  },
+  "toolbar": {
+    "search": "Search...",
+    "newCard": "New Card"
+  },
+  "lockStatus": {
+    "unencrypted": "Unencrypted",
+    "setupTitle": "Click to set file password",
+    "unlocked": "Unlocked",
+    "lockTitle": "Click to lock all encrypted content",
+    "locked": "Locked",
+    "unlockTitle": "Click to enter password",
+    "wrongPassword": "Wrong password",
+    "unlockFile": "Unlock File",
+    "setupPassword": "Set File Password",
+    "passwordLostWarning": "Password cannot be recovered if lost."
+  },
+  "password": {
+    "emptyError": "Please enter a password",
+    "mismatchError": "Passwords do not match",
+    "failedError": "Operation failed, please try again",
+    "hintPrefix": "Hint: {{hint}}",
+    "setPlaceholder": "Set password",
+    "enterPlaceholder": "Enter password",
+    "confirmPlaceholder": "Confirm password",
+    "hintPlaceholder": "Password hint (optional)",
+    "cancel": "Cancel",
+    "processing": "Processing…",
+    "encrypt": "Encrypt",
+    "unlock": "Unlock"
+  },
+  "confirm": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "cardBody": {
+    "locked": "Content encrypted. Click to view.",
+    "placeholder": "Content…"
+  },
+  "cardActions": {
+    "encrypt": "Encrypt this card",
+    "removeEncryption": "Remove encryption",
+    "unlock": "Unlock card",
+    "changeColor": "Change color",
+    "delete": "Delete card",
+    "more": "More actions",
+    "copy": "Copy content",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "card": {
+    "titlePlaceholder": "Title",
+    "encryptedBadge": "This card is encrypted",
+    "deleteTitle": "Delete Card",
+    "untitled": "Untitled",
+    "delete": "Delete",
+    "wrongPassword": "Wrong password",
+    "unlockFile": "Unlock File",
+    "setupPassword": "Set File Password",
+    "passwordLostWarning": "Password cannot be recovered if lost.",
+    "verifyToRemove": "Verify Password to Remove Encryption"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "appearance": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "autoLock": "Auto Lock",
+    "never": "Never",
+    "min5": "5 min",
+    "min10": "10 min",
+    "min30": "30 min",
+    "security": "Security",
+    "filePassword": "File Password",
+    "setPassword": "Set Password",
+    "changePassword": "Change Password",
+    "removePassword": "Remove Password",
+    "checking": "Checking…",
+    "downloading": "Downloading…",
+    "upToDate": "Up to date",
+    "networkError": "Connection failed",
+    "openedBrowser": "Opened download page",
+    "checkUpdate": "Check for Updates",
+    "ignoreVersion": "Ignore this version",
+    "networkErrorDesc": "Cannot connect to update server. Network restrictions may apply (VPN may be required).\nYou can also visit the releases page to download and install manually.",
+    "unlockFile": "Unlock File",
+    "setupPassword": "Set File Password",
+    "passwordLostWarning": "Password cannot be recovered if lost.",
+    "changeFilePassword": "Change File Password",
+    "setNewPassword": "Set a new password.",
+    "deletePassword": "Delete Password",
+    "deletePasswordConfirm": "Delete password and decrypt all content?",
+    "delete": "Delete",
+    "language": "Language",
+    "wrongPassword": "Wrong password"
+  },
+  "app": {
+    "updateAvailable": "A new version is available",
+    "updateAvailableVersion": "New version {{version}} available",
+    "updateNow": "Update Now",
+    "later": "Later",
+    "updateFailed": "Connection failed. VPN may be required, or visit the releases page to download manually."
+  }
+}

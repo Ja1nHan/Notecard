@@ -1,0 +1,301 @@
+.cards-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cards-grid {
+  display: block;
+  columns: 4;
+  column-gap: 14px;
+}
+
+/* 标签已解锁提示栏 */
+.tab-unlock-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  color: var(--accent);
+}
+
+.tab-unlock-banner svg { width: 13px; height: 13px; }
+
+.tab-relock-btn {
+  margin-left: auto;
+  padding: 3px 10px;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.tab-relock-btn:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+@media (max-width: 1100px) {
+  .cards-grid { columns: 3; }
+}
+
+@media (max-width: 740px) {
+  .cards-grid { columns: 2; }
+}
+
+/* ── 卡片 ── */
+.card-wrapper {
+  break-inside: avoid;
+  margin-bottom: 14px;
+}
+
+.card {
+  --menu-bg: var(--card-bg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 15px 14px;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.18s, border-color 0.18s, opacity 0.2s, transform 0.2s;
+  width: 100%;
+  cursor: text;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.card.sage     { background: var(--card-sage);     --menu-bg: var(--card-sage); }
+.card.blue     { background: var(--card-blue);     --menu-bg: var(--card-blue); }
+.card.amber    { background: var(--card-amber);    --menu-bg: var(--card-amber); }
+.card.lavender { background: var(--card-lavender); --menu-bg: var(--card-lavender); }
+
+/* 拖拽状态 */
+.card { cursor: grab; }
+.card-body, .card-title { cursor: text; }
+.card-locked-body { cursor: pointer; }
+
+/* 拖拽覆盖层（跟随鼠标的浮动副本） */
+.card-drag-overlay .card {
+  cursor: grabbing;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  border-color: var(--border-strong);
+}
+
+/* ── 悬浮操作菜单 ── */
+.card-actions-wrapper {
+  position: absolute;
+  top: 8px; right: 8px;
+  display: flex;
+  gap: 2px;
+  background: var(--menu-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 3px;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 0.15s, transform 0.15s;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .card-actions-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.actions-primary {
+  display: flex;
+  gap: 2px;
+}
+
+.actions-secondary {
+  display: flex;
+  gap: 2px;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding-right: 2px;
+  transition: max-width 0.2s ease-out, opacity 0.18s ease-out;
+}
+
+.actions-secondary.expanded {
+  max-width: 96px;
+  opacity: 1;
+}
+
+/* 卡片按钮 */
+.card-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, color 0.1s;
+}
+
+.card-btn:hover { background: rgba(0, 0, 0, 0.06); color: var(--text); }
+[data-theme='dark'] .card-btn:hover { background: rgba(255, 255, 255, 0.08); }
+.card-btn.del:hover { background: var(--red-soft); color: var(--red); }
+.card-btn svg { width: 14px; height: 14px; }
+.card-btn.lock-active { color: var(--accent); }
+.card-btn.lock-active:hover { background: rgba(232, 146, 10, 0.12); color: var(--accent); }
+
+/* ── 卡片内容 ── */
+.card-title {
+  display: flex;
+  align-items: center;
+  padding-right: 70px;
+  margin-bottom: 9px;
+  min-height: 19px;
+}
+
+.card-title-input {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-title-input:empty::before {
+  content: attr(data-placeholder);
+  color: var(--text-3);
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.card-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 0 0 9px;
+}
+
+.card-body {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  color: var(--text-2);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+  outline: none;
+  min-height: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  cursor: text;
+}
+
+.card-body::-webkit-scrollbar { width: 4px; }
+.card-body::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+.card-body:empty::before {
+  content: attr(data-placeholder);
+  color: var(--text-3);
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  pointer-events: none;
+}
+
+.card-body-preview {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+  max-height: 42px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+/* ── 卡片级加密 ── */
+.card-locked-badge-float {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  color: var(--accent);
+  opacity: 0.4;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover .card-locked-badge-float {
+  opacity: 0.8;
+}
+
+.card-locked-badge-float svg {
+  width: 14px;
+  height: 14px;
+}
+
+.card-lock-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+  vertical-align: middle;
+  color: var(--accent);
+}
+
+.card-lock-badge svg { width: 12px; height: 12px; }
+
+.card-locked-body {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 0 4px;
+  color: var(--accent);
+  font-size: 12.5px;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.15s;
+}
+
+.card-locked-body:hover { opacity: 0.7; }
+.card-locked-body svg { width: 15px; height: 15px; }
+
+/* ── 空状态 ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  color: var(--text-3);
+  padding-bottom: 80px;
+}
+
+.empty svg { width: 36px; height: 36px; }
+.empty p { font-size: 13.5px; }

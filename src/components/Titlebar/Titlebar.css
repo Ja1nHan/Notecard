@@ -1,0 +1,107 @@
+/* ── 标题栏 ── 照搬 ai_studio_code.html L52-60 */
+
+.titlebar {
+  height: 42px;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 10px;
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 100;
+}
+
+/* Logo 区域 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 独立拖拽区（填充中间空白，不与按钮重叠） */
+.titlebar-drag-zone {
+  flex: 1;
+  height: 100%;
+}
+
+/* 标题栏左侧操作区 */
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 文件菜单按钮 */
+.file-menu-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+
+.file-menu-btn:hover {
+  background: var(--bg);
+  color: var(--text-2);
+}
+
+.file-menu-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 窗口控件 */
+.wincontrols {
+  display: flex;
+}
+
+.winbtn {
+  width: 46px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+
+.winbtn:hover {
+  background: var(--bg);
+  color: var(--text-2);
+}
+
+.winbtn.close:hover {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.winbtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.file-menu-item:hover { background: var(--surface-hover); }
+

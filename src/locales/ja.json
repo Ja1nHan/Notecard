@@ -1,0 +1,159 @@
+{
+  "titlebar": {
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "close": "閉じる"
+  },
+  "fileMenu": {
+    "ops": "ファイル",
+    "new": "新規 .ncard",
+    "open": ".ncard を開く",
+    "recent": "最近使ったファイル"
+  },
+  "sidebar": {
+    "categories": "カテゴリ",
+    "newCategory": "カテゴリを追加",
+    "settings": "設定"
+  },
+  "tab": {
+    "encryptCategory": "暗号化する",
+    "unlockCategory": "ロック解除",
+    "removeEncryption": "暗号化を解除",
+    "deleteCategory": "削除"
+  },
+  "tabList": {
+    "wrongPassword": "パスワードが正しくありません",
+    "unlockFile": "ファイルのロック解除",
+    "setupPassword": "パスワードを設定",
+    "passwordLostWarning": "パスワードを忘れると復元できません。",
+    "verifyToRemove": "パスワードを確認して暗号化を解除",
+    "deleteCategory": "カテゴリを削除",
+    "untitled": "名称未設定",
+    "delete": "削除"
+  },
+  "cards": {
+    "noCategory": "カテゴリが選択されていません",
+    "categoryEncrypted": "このカテゴリは暗号化されています",
+    "hint": "ヒント：{{hint}}",
+    "viewContent": "内容を表示",
+    "unlock": "ロック解除",
+    "noResults": "一致する項目が見つかりません（暗号化されている可能性があります）",
+    "empty": "カードがありません。「新規カード」で追加できます。",
+    "unlockFile": "ファイルのロック解除"
+  },
+  "welcome": {
+    "desc": "パスワードとメモを安全に管理",
+    "openFile": "ファイルを開く",
+    "newFile": "新規作成",
+    "recentFiles": "最近使用",
+    "backups": "バックアップ",
+    "unknownTime": "日時不明",
+    "restoreBackup": "このバックアップから復元",
+    "deleteBackup": "このバックアップを削除",
+    "confirmDeleteBackup": "バックアップ「{{name}}」を削除しますか？この操作は取り消せません。"
+  },
+  "toolbar": {
+    "search": "検索",
+    "newCard": "新規カード"
+  },
+  "lockStatus": {
+    "unencrypted": "暗号化なし",
+    "setupTitle": "クリックしてパスワードを設定",
+    "unlocked": "ロック解除済み",
+    "lockTitle": "クリックしてロック",
+    "locked": "ロック中",
+    "unlockTitle": "クリックしてロック解除",
+    "wrongPassword": "パスワードが正しくありません",
+    "unlockFile": "ファイルのロック解除",
+    "setupPassword": "パスワードを設定",
+    "passwordLostWarning": "パスワードを忘れると復元できません。"
+  },
+  "password": {
+    "emptyError": "パスワードを入力してください",
+    "mismatchError": "パスワードが一致しません",
+    "failedError": "失敗しました。もう一度お試しください",
+    "hintPrefix": "ヒント：{{hint}}",
+    "setPlaceholder": "新しいパスワード",
+    "enterPlaceholder": "パスワード",
+    "confirmPlaceholder": "パスワードを確認",
+    "hintPlaceholder": "ヒント（任意）",
+    "cancel": "キャンセル",
+    "processing": "処理中…",
+    "encrypt": "暗号化",
+    "unlock": "ロック解除"
+  },
+  "confirm": {
+    "cancel": "キャンセル",
+    "confirm": "OK"
+  },
+  "cardBody": {
+    "locked": "暗号化されています。クリックして表示。",
+    "placeholder": "メモを入力…"
+  },
+  "cardActions": {
+    "encrypt": "暗号化する",
+    "removeEncryption": "暗号化を解除",
+    "unlock": "ロック解除",
+    "changeColor": "色を変更",
+    "delete": "削除",
+    "more": "その他",
+    "copy": "コピー",
+    "expand": "展開",
+    "collapse": "折りたたむ"
+  },
+  "card": {
+    "titlePlaceholder": "タイトル",
+    "encryptedBadge": "暗号化済み",
+    "deleteTitle": "カードを削除",
+    "untitled": "名称未設定",
+    "delete": "削除",
+    "wrongPassword": "パスワードが正しくありません",
+    "unlockFile": "ファイルのロック解除",
+    "setupPassword": "パスワードを設定",
+    "passwordLostWarning": "パスワードを忘れると復元できません。",
+    "verifyToRemove": "パスワードを確認して暗号化を解除"
+  },
+  "settings": {
+    "title": "設定",
+    "general": "一般",
+    "appearance": "テーマ",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム",
+    "autoLock": "自動ロック",
+    "never": "なし",
+    "min5": "5分",
+    "min10": "10分",
+    "min30": "30分",
+    "security": "セキュリティ",
+    "filePassword": "ファイルのパスワード",
+    "setPassword": "設定する",
+    "changePassword": "変更する",
+    "removePassword": "削除する",
+    "checking": "確認中…",
+    "downloading": "ダウンロード中…",
+    "upToDate": "最新です",
+    "networkError": "接続できません",
+    "openedBrowser": "ダウンロードページを開きました",
+    "checkUpdate": "アップデートを確認",
+    "ignoreVersion": "このバージョンをスキップ",
+    "networkErrorDesc": "アップデートサーバーに接続できませんでした。ネットワーク環境をご確認ください（VPN が必要な場合があります）。\nリリースページから手動でインストールすることも可能です。",
+    "unlockFile": "ファイルのロック解除",
+    "setupPassword": "パスワードを設定",
+    "passwordLostWarning": "パスワードを忘れると復元できません。",
+    "changeFilePassword": "パスワードを変更",
+    "setNewPassword": "新しいパスワードを入力してください。",
+    "deletePassword": "パスワードを削除",
+    "deletePasswordConfirm": "パスワードを削除してすべての暗号化を解除しますか？",
+    "delete": "削除",
+    "language": "言語",
+    "wrongPassword": "パスワードが正しくありません"
+  },
+  "app": {
+    "updateAvailable": "アップデートがあります",
+    "updateAvailableVersion": "バージョン {{version}} が利用できます",
+    "updateNow": "今すぐ更新",
+    "later": "後で",
+    "updateFailed": "接続に失敗しました。VPN が必要な場合があります。リリースページから手動でダウンロードすることも可能です。"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "NoteCard",
+  "version": "0.1.0",
+  "identifier": "com.notecard.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "NoteCard",
+        "width": 900,
+        "height": 650,
+        "minWidth": 600,
+        "minHeight": 400,
+        "decorations": false,
+        "resizable": true,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEY2RDYzRUY3ODVENTFEMjYKUldRbUhkV0Y5ejdXOXVvTll6dmsvUjJ1SHhIdjBPbmplSkMwZUhYdW0ydHNSdU9HVnY0aEdWSE4K",
+      "endpoints": [
+        "https://github.com/Ja1nHan/Notecard/releases/latest/download/latest.json"
+      ],
+      "dialog": false
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/64x64.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "fileAssociations": [
+      {
+        "ext": ["ncard"],
+        "name": "NoteCard File",
+        "description": "NoteCard document"
+      }
+    ]
+  }
+}

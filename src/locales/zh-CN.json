@@ -1,0 +1,159 @@
+{
+  "titlebar": {
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "close": "关闭"
+  },
+  "fileMenu": {
+    "ops": "文件操作",
+    "new": "新建 .ncard",
+    "open": "打开 .ncard",
+    "recent": "最近打开"
+  },
+  "sidebar": {
+    "categories": "类别",
+    "newCategory": "新建类别",
+    "settings": "设置"
+  },
+  "tab": {
+    "encryptCategory": "加密类别",
+    "unlockCategory": "输入密码解锁",
+    "removeEncryption": "解除加密",
+    "deleteCategory": "删除类别"
+  },
+  "tabList": {
+    "wrongPassword": "密码错误",
+    "unlockFile": "解锁文件",
+    "setupPassword": "设置文件密码",
+    "passwordLostWarning": "密码丢失无法找回。",
+    "verifyToRemove": "验证密码以解除加密",
+    "deleteCategory": "删除类别",
+    "untitled": "无标题",
+    "delete": "删除"
+  },
+  "cards": {
+    "noCategory": "没有选中的类别",
+    "categoryEncrypted": "此类别已加密",
+    "hint": "提示：{{hint}}",
+    "viewContent": "查看内容",
+    "unlock": "输入密码解锁",
+    "noResults": "没有找到匹配内容或内容已加密但未解锁",
+    "empty": "还没有卡片，点击「新建卡片」开始记录",
+    "unlockFile": "解锁文件"
+  },
+  "welcome": {
+    "desc": "安全存储你的密码与笔记",
+    "openFile": "打开文件",
+    "newFile": "新建文件",
+    "recentFiles": "最近使用",
+    "backups": "可用备份",
+    "unknownTime": "未知时间",
+    "restoreBackup": "恢复此备份",
+    "deleteBackup": "删除此备份",
+    "confirmDeleteBackup": "确定删除备份文件 \"{{name}}\" 吗？此操作不可撤销。"
+  },
+  "toolbar": {
+    "search": "搜索...",
+    "newCard": "新建卡片"
+  },
+  "lockStatus": {
+    "unencrypted": "未加密",
+    "setupTitle": "点击设置文件密码",
+    "unlocked": "已解锁",
+    "lockTitle": "点击锁定所有加密内容",
+    "locked": "已锁定",
+    "unlockTitle": "点击输入密码解锁",
+    "wrongPassword": "密码错误",
+    "unlockFile": "解锁文件",
+    "setupPassword": "设置文件密码",
+    "passwordLostWarning": "密码丢失无法找回。"
+  },
+  "password": {
+    "emptyError": "请输入密码",
+    "mismatchError": "两次输入的密码不一致",
+    "failedError": "操作失败，请重试",
+    "hintPrefix": "提示：{{hint}}",
+    "setPlaceholder": "设置密码",
+    "enterPlaceholder": "输入密码",
+    "confirmPlaceholder": "确认密码",
+    "hintPlaceholder": "密码提示（可选）",
+    "cancel": "取消",
+    "processing": "处理中…",
+    "encrypt": "加密",
+    "unlock": "解锁"
+  },
+  "confirm": {
+    "cancel": "取消",
+    "confirm": "确认"
+  },
+  "cardBody": {
+    "locked": "内容已加密，点击查看",
+    "placeholder": "内容…"
+  },
+  "cardActions": {
+    "encrypt": "加密此卡片",
+    "removeEncryption": "解除加密",
+    "unlock": "解锁卡片",
+    "changeColor": "修改颜色",
+    "delete": "删除卡片",
+    "more": "更多操作",
+    "copy": "复制内容",
+    "expand": "展开",
+    "collapse": "折叠"
+  },
+  "card": {
+    "titlePlaceholder": "标题",
+    "encryptedBadge": "此卡片已被加密",
+    "deleteTitle": "删除卡片",
+    "untitled": "无标题",
+    "delete": "删除",
+    "wrongPassword": "密码错误",
+    "unlockFile": "解锁文件",
+    "setupPassword": "设置文件密码",
+    "passwordLostWarning": "密码丢失无法找回。",
+    "verifyToRemove": "验证密码以解除加密"
+  },
+  "settings": {
+    "title": "设置",
+    "general": "通用",
+    "appearance": "外观模式",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统",
+    "autoLock": "自动锁定",
+    "never": "从不",
+    "min5": "5分",
+    "min10": "10分",
+    "min30": "30分",
+    "security": "安全",
+    "filePassword": "文件密码",
+    "setPassword": "设密码",
+    "changePassword": "修改密码",
+    "removePassword": "移除密码",
+    "checking": "检查中…",
+    "downloading": "下载中…",
+    "upToDate": "已是最新",
+    "networkError": "连接失败",
+    "openedBrowser": "已打开下载页",
+    "checkUpdate": "检查更新",
+    "ignoreVersion": "忽略此版本",
+    "networkErrorDesc": "无法连接更新服务器，可能是网络限制（需要 VPN）。\n也可前往发布页手动下载安装包覆盖安装。",
+    "unlockFile": "解锁文件",
+    "setupPassword": "设置文件密码",
+    "passwordLostWarning": "密码丢失无法找回。",
+    "changeFilePassword": "修改文件密码",
+    "setNewPassword": "设置新密码。",
+    "deletePassword": "删除密码",
+    "deletePasswordConfirm": "确定删除密码并解密所有内容？",
+    "delete": "删除",
+    "language": "语言",
+    "wrongPassword": "密码错误"
+  },
+  "app": {
+    "updateAvailable": "有新版本可用",
+    "updateAvailableVersion": "有新版本 {{version}} 可用",
+    "updateNow": "立即更新",
+    "later": "稍后更新",
+    "updateFailed": "连接失败，可能需要 VPN，或前往发布页手动下载安装包"
+  }
+}

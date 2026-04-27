@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Install frontend dependencies
+        run: pnpm install
+
+      - name: Build and release (NSIS installer)
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: NoteCard ${{ github.ref_name }}
+          releaseBody: |
+            ## 更新内容
+
+            请查看本次更新的改动说明。
+          releaseDraft: false
+          prerelease: false
+
+      - name: Build portable zip
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}"
+          $exePath = "src-tauri\target\release\NoteCard.exe"
+          $zipName = "NoteCard_${version}_x64_portable.zip"
+
+          # Create .portable marker file (signals the app it's running as portable)
+          New-Item -ItemType File -Path ".portable" -Force | Out-Null
+
+          # Package exe + marker into zip
+          Compress-Archive -Path $exePath, ".portable" -DestinationPath $zipName -Force
+
+          echo "ZIP_NAME=$zipName" >> $env:GITHUB_ENV
+
+      - name: Upload portable zip to release
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.ref_name }}" "${{ env.ZIP_NAME }}" --clobber

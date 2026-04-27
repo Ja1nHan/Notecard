@@ -1,0 +1,159 @@
+{
+  "titlebar": {
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "close": "關閉"
+  },
+  "fileMenu": {
+    "ops": "檔案操作",
+    "new": "新增 .ncard",
+    "open": "開啟 .ncard",
+    "recent": "最近開啟"
+  },
+  "sidebar": {
+    "categories": "類別",
+    "newCategory": "新增類別",
+    "settings": "設定"
+  },
+  "tab": {
+    "encryptCategory": "加密類別",
+    "unlockCategory": "輸入密碼解鎖",
+    "removeEncryption": "移除加密",
+    "deleteCategory": "刪除類別"
+  },
+  "tabList": {
+    "wrongPassword": "密碼錯誤",
+    "unlockFile": "解鎖檔案",
+    "setupPassword": "設定檔案密碼",
+    "passwordLostWarning": "密碼遺失後無法復原。",
+    "verifyToRemove": "驗證密碼以移除加密",
+    "deleteCategory": "刪除類別",
+    "untitled": "未命名",
+    "delete": "刪除"
+  },
+  "cards": {
+    "noCategory": "尚未選擇類別",
+    "categoryEncrypted": "此類別已加密",
+    "hint": "提示：{{hint}}",
+    "viewContent": "查看內容",
+    "unlock": "輸入密碼解鎖",
+    "noResults": "找不到符合的內容，或內容已加密且尚未解鎖",
+    "empty": "還沒有卡片，點擊「新增卡片」開始記錄",
+    "unlockFile": "解鎖檔案"
+  },
+  "welcome": {
+    "desc": "安全儲存你的密碼與筆記",
+    "openFile": "開啟檔案",
+    "newFile": "新增檔案",
+    "recentFiles": "最近使用",
+    "backups": "可用備份",
+    "unknownTime": "時間不明",
+    "restoreBackup": "還原此備份",
+    "deleteBackup": "刪除此備份",
+    "confirmDeleteBackup": "確定刪除備份「{{name}}」？此操作無法復原。"
+  },
+  "toolbar": {
+    "search": "搜尋...",
+    "newCard": "新增卡片"
+  },
+  "lockStatus": {
+    "unencrypted": "未加密",
+    "setupTitle": "點擊設定檔案密碼",
+    "unlocked": "已解鎖",
+    "lockTitle": "點擊鎖定所有加密內容",
+    "locked": "已鎖定",
+    "unlockTitle": "點擊輸入密碼解鎖",
+    "wrongPassword": "密碼錯誤",
+    "unlockFile": "解鎖檔案",
+    "setupPassword": "設定檔案密碼",
+    "passwordLostWarning": "密碼遺失後無法復原。"
+  },
+  "password": {
+    "emptyError": "請輸入密碼",
+    "mismatchError": "兩次輸入的密碼不一致",
+    "failedError": "操作失敗，請再試一次",
+    "hintPrefix": "提示：{{hint}}",
+    "setPlaceholder": "設定密碼",
+    "enterPlaceholder": "輸入密碼",
+    "confirmPlaceholder": "確認密碼",
+    "hintPlaceholder": "密碼提示（選填）",
+    "cancel": "取消",
+    "processing": "處理中…",
+    "encrypt": "加密",
+    "unlock": "解鎖"
+  },
+  "confirm": {
+    "cancel": "取消",
+    "confirm": "確認"
+  },
+  "cardBody": {
+    "locked": "內容已加密，點擊查看",
+    "placeholder": "內容…"
+  },
+  "cardActions": {
+    "encrypt": "加密此卡片",
+    "removeEncryption": "移除加密",
+    "unlock": "解鎖卡片",
+    "changeColor": "更改顏色",
+    "delete": "刪除卡片",
+    "more": "更多操作",
+    "copy": "複製內容",
+    "expand": "展開",
+    "collapse": "收合"
+  },
+  "card": {
+    "titlePlaceholder": "標題",
+    "encryptedBadge": "此卡片已加密",
+    "deleteTitle": "刪除卡片",
+    "untitled": "未命名",
+    "delete": "刪除",
+    "wrongPassword": "密碼錯誤",
+    "unlockFile": "解鎖檔案",
+    "setupPassword": "設定檔案密碼",
+    "passwordLostWarning": "密碼遺失後無法復原。",
+    "verifyToRemove": "驗證密碼以移除加密"
+  },
+  "settings": {
+    "title": "設定",
+    "general": "一般",
+    "appearance": "外觀",
+    "light": "淺色",
+    "dark": "深色",
+    "system": "系統",
+    "autoLock": "自動鎖定",
+    "never": "關閉",
+    "min5": "5 分鐘",
+    "min10": "10 分鐘",
+    "min30": "30 分鐘",
+    "security": "安全性",
+    "filePassword": "檔案密碼",
+    "setPassword": "設定密碼",
+    "changePassword": "修改密碼",
+    "removePassword": "移除密碼",
+    "checking": "檢查中…",
+    "downloading": "下載中…",
+    "upToDate": "已是最新版",
+    "networkError": "連線失敗",
+    "openedBrowser": "已開啟下載頁面",
+    "checkUpdate": "檢查更新",
+    "ignoreVersion": "略過此版本",
+    "networkErrorDesc": "無法連線至更新伺服器，可能受到網路限制（可嘗試使用 VPN）。\n也可前往發布頁手動下載安裝包。",
+    "unlockFile": "解鎖檔案",
+    "setupPassword": "設定檔案密碼",
+    "passwordLostWarning": "密碼遺失後無法復原。",
+    "changeFilePassword": "修改檔案密碼",
+    "setNewPassword": "設定新密碼。",
+    "deletePassword": "刪除密碼",
+    "deletePasswordConfirm": "確定刪除密碼並解密所有內容？",
+    "delete": "刪除",
+    "language": "語言",
+    "wrongPassword": "密碼錯誤"
+  },
+  "app": {
+    "updateAvailable": "有新版本可用",
+    "updateAvailableVersion": "新版本 {{version}} 已發布",
+    "updateNow": "立即更新",
+    "later": "稍後再說",
+    "updateFailed": "連線失敗，可能需要 VPN，或前往發布頁手動下載安裝"
+  }
+}
