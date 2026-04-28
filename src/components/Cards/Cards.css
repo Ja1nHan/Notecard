@@ -62,7 +62,7 @@
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 15px 15px 14px;
+  padding: 15px 15px 44px;
   position: relative;
   box-shadow: var(--shadow-card);
   transition: box-shadow 0.18s, border-color 0.18s, opacity 0.2s, transform 0.2s;
@@ -92,48 +92,28 @@
   border-color: var(--border-strong);
 }
 
-/* ── 悬浮操作菜单 ── */
+/* ── 底部操作栏 ── */
 .card-actions-wrapper {
   position: absolute;
-  top: 8px; right: 8px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
+  align-items: center;
   gap: 2px;
   background: var(--menu-bg);
-  border: 1px solid var(--border-strong);
-  border-radius: 20px;
-  padding: 3px;
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 4px 6px;
   opacity: 0;
-  transform: translateY(-3px);
-  transition: opacity 0.15s, transform 0.15s;
+  transition: opacity 0.15s;
   pointer-events: none;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover .card-actions-wrapper {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
-}
-
-.actions-primary {
-  display: flex;
-  gap: 2px;
-}
-
-.actions-secondary {
-  display: flex;
-  gap: 2px;
-  max-width: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding-right: 2px;
-  transition: max-width 0.2s ease-out, opacity 0.18s ease-out;
-}
-
-.actions-secondary.expanded {
-  max-width: 96px;
-  opacity: 1;
 }
 
 /* 卡片按钮 */
@@ -154,6 +134,7 @@
 
 .card-btn:hover { background: rgba(0, 0, 0, 0.06); color: var(--text); }
 [data-theme='dark'] .card-btn:hover { background: rgba(255, 255, 255, 0.08); }
+.card-btn.del { color: var(--red); }
 .card-btn.del:hover { background: var(--red-soft); color: var(--red); }
 .card-btn svg { width: 14px; height: 14px; }
 .card-btn.lock-active { color: var(--accent); }
@@ -163,7 +144,6 @@
 .card-title {
   display: flex;
   align-items: center;
-  padding-right: 70px;
   margin-bottom: 9px;
   min-height: 19px;
 }
@@ -252,7 +232,7 @@
 }
 
 .card:hover .card-locked-badge-float {
-  opacity: 0.8;
+  opacity: 0;
 }
 
 .card-locked-badge-float svg {
@@ -284,6 +264,24 @@
 
 .card-locked-body:hover { opacity: 0.7; }
 .card-locked-body svg { width: 15px; height: 15px; }
+
+/* ── 拖拽浮层 chip ── */
+.card-drag-chip {
+  background: var(--card-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: grabbing;
+  pointer-events: none;
+}
 
 /* ── 空状态 ── */
 .empty {

@@ -1,12 +1,8 @@
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Layers, Lock, SearchX } from 'lucide-react';
-import { DndContext, DragOverlay, useSensor, useSensors } from '@dnd-kit/core';
-import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
 import { useAppStore } from '../../stores/useAppStore';
-import { Card } from './Card';
 import { SortableCard } from './SortableCard';
-import { AppPointerSensor } from '../../lib/dnd-sensor';
 import { PasswordModal } from '../Modal/PasswordModal';
 import { useSearchHighlight } from '../../hooks/useSearchHighlight';
 import { useTranslation } from 'react-i18next';
@@ -18,18 +14,12 @@ export function CardsGrid() {
   const tabs = useAppStore((s) => s.tabs);
   const activeTabId = useAppStore((s) => s.activeTabId);
   const searchQuery = useAppStore((s) => s.searchQuery);
-  const reorderCards = useAppStore((s) => s.reorderCards);
   const sessionUnlocked = useAppStore((s) => s.sessionUnlocked);
   const fileLock = useAppStore((s) => s.fileLock);
   const unlockSession = useAppStore((s) => s.unlockSession);
   const unlockTab = useAppStore((s) => s.unlockTab);
 
-  const [draggingId, setDraggingId] = useState<string | null>(null);
   const [unlockModal, setUnlockModal] = useState(false);
-
-  const sensors = useSensors(
-    useSensor(AppPointerSensor, { activationConstraint: { distance: 8 } }),
-  );
 
   useSearchHighlight(gridRef, searchQuery);
 
@@ -128,42 +118,15 @@ export function CardsGrid() {
     );
   }
 
-  const draggingCard = cards.find((c) => c.id === draggingId);
-
-  function handleDragStart({ active }: DragStartEvent) {
-    setDraggingId(active.id as string);
-  }
-
-  function handleDragEnd({ active, over }: DragEndEvent) {
-    setDraggingId(null);
-    if (over && active.id !== over.id) {
-      reorderCards(activeTabId, active.id as string, over.id as string);
-    }
-  }
-
   return (
-    <DndContext
-      sensors={sensors}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-      onDragCancel={() => setDraggingId(null)}
-    >
-      <SortableContext items={cards.map((c) => c.id)} strategy={rectSortingStrategy}>
-        <div className="cards-area" ref={gridRef}>
-          <div className="cards-grid">
-            {cards.map((card) => (
-              <SortableCard key={card.id} tabId={activeTabId} card={card} />
-            ))}
-          </div>
+    <SortableContext items={cards.map((c) => c.id)} strategy={rectSortingStrategy}>
+      <div className="cards-area" ref={gridRef}>
+        <div className="cards-grid">
+          {cards.map((card) => (
+            <SortableCard key={card.id} tabId={activeTabId} card={card} />
+          ))}
         </div>
-      </SortableContext>
-      <DragOverlay dropAnimation={null}>
-        {draggingCard ? (
-          <div className="card-drag-overlay">
-            <Card tabId={activeTabId} card={draggingCard} />
-          </div>
-        ) : null}
-      </DragOverlay>
-    </DndContext>
+      </div>
+    </SortableContext>
   );
 }

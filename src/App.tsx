@@ -23,6 +23,7 @@ import { useToastStore } from './hooks/useToast';
 import './App.css';
 
 import { openFile, createNewFile, saveFile, openFileByPath } from './lib/file_io';
+import { DragProvider } from './lib/DragProvider';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { invoke } from '@tauri-apps/api/core';
 
@@ -242,7 +243,7 @@ function App() {
     return <div style={{ width: '100vw', height: '100vh', background: 'var(--bg)' }} />;
 
   return (
-    <>
+    <DragProvider>
       <Titlebar />
       {hasFile ? (
         <div className="app-body">
@@ -265,7 +266,7 @@ function App() {
       )}
       {settingsOpen && <SettingsPanel onClose={() => setSettingsOpen(false)} />}
       <ToastContainer />
-    </>
+    </DragProvider>
   );
 }
 

@@ -154,6 +154,16 @@
   color: var(--accent);
 }
 
+/* 卡片拖入 Tab 时的高亮 */
+.tab-item.card-drop-target {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+[data-theme='dark'] .tab-item.card-drop-target {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
 /* 拖拽状态 */
 .tab-item { cursor: grab; }
 

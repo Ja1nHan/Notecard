@@ -101,6 +101,11 @@
     "expand": "Expand",
     "collapse": "Collapse"
   },
+  "moveCard": {
+    "plaintextTitle": "Moving out of encrypted category",
+    "plaintextBody": "This card will leave the encrypted category. Its content will be saved as <strong>plaintext</strong> with no password protection. Continue?",
+    "confirmMove": "Move anyway"
+  },
   "card": {
     "titlePlaceholder": "Title",
     "encryptedBadge": "This card is encrypted",

@@ -3,8 +3,7 @@ import { Lock } from 'lucide-react';
 import { useAppStore } from '../../stores/useAppStore';
 import type { AppCard } from '../../types/app';
 import type { CardColor } from '../../types/ncard';
-import { CardPrimaryActions } from './CardPrimaryActions';
-import { CardSecondaryActions } from './CardSecondaryActions';
+import { CardActions } from './CardActions';
 import { CardBody } from './CardBody';
 import { ColorPopup } from './ColorPopup';
 import { ConfirmModal } from '../Modal/ConfirmModal';
@@ -21,7 +20,6 @@ export function Card({ tabId, card }: CardProps) {
   const titleRef = useRef<HTMLDivElement>(null);
   const cardEl = useRef<HTMLDivElement>(null);
 
-  const [secondaryExpanded, setSecondaryExpanded] = useState(false);
   const [colorAnchor, setColorAnchor] = useState<DOMRect | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [showSessionModal, setShowSessionModal] = useState(false);
@@ -111,55 +109,22 @@ export function Card({ tabId, card }: CardProps) {
     }
   }, [card.title]);
 
-  const collapseTimeoutRef = useRef<number | null>(null);
-
-  function handleMouseLeave() {
-    if (secondaryExpanded) {
-      collapseTimeoutRef.current = window.setTimeout(() => {
-        setSecondaryExpanded(false);
-      }, 3000);
-    }
-  }
-
-  function handleMouseEnter() {
-    if (collapseTimeoutRef.current) {
-      window.clearTimeout(collapseTimeoutRef.current);
-      collapseTimeoutRef.current = null;
-    }
-  }
-
-  useEffect(() => {
-    return () => {
-      if (collapseTimeoutRef.current) window.clearTimeout(collapseTimeoutRef.current);
-    };
-  }, []);
-
   const isTabEncrypted = useAppStore((s) => s.tabs.find((t) => t.id === tabId)?.encrypted);
 
   return (
     <>
-      <div
-        ref={cardEl}
-        className={`card${colorClass}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div ref={cardEl} className={`card${colorClass}`}>
         <div className="card-actions-wrapper">
-          <CardSecondaryActions
-            expanded={secondaryExpanded}
+          <CardActions
+            collapsed={card.collapsed}
+            body={card.body}
             locked={card.locked}
             cardUnlocked={card.cardUnlocked}
             isTabEncrypted={!!isTabEncrypted}
+            onToggleCollapse={() => toggleCardCollapsed(tabId, card.id)}
             onEncrypt={handleEncryptToggle}
             onColorClick={handleColorClick}
             onDelete={() => setConfirmDelete(true)}
-          />
-          <CardPrimaryActions
-            collapsed={card.collapsed}
-            secondaryExpanded={secondaryExpanded}
-            body={card.body}
-            onToggleSecondary={() => setSecondaryExpanded((v) => !v)}
-            onToggleCollapse={() => toggleCardCollapsed(tabId, card.id)}
           />
         </div>
 

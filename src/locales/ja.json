@@ -101,6 +101,11 @@
     "expand": "展開",
     "collapse": "折りたたむ"
   },
+  "moveCard": {
+    "plaintextTitle": "暗号化カテゴリから移動",
+    "plaintextBody": "このカードは暗号化カテゴリから離れます。内容は<strong>平文</strong>で保存され、パスワード保護がなくなります。続けますか？",
+    "confirmMove": "移動する"
+  },
   "card": {
     "titlePlaceholder": "タイトル",
     "encryptedBadge": "暗号化済み",

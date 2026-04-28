@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { initI18n } from './lib/i18n';
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 import './styles/global.css';
 
 // 禁用默认右键菜单（提升原生应用体验）
@@ -27,4 +28,8 @@ initI18n().then(() => {
       <App />
     </React.StrictMode>,
   );
+  // React 挂载完成后再显示窗口：
+  // 此时 tauri-plugin-window-state 已完成尺寸/位置恢复，
+  // 窗口直接以正确的大小出现，消除启动时的尺寸跳变
+  void getCurrentWebviewWindow().show();
 });

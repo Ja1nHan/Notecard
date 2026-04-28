@@ -10,6 +10,7 @@ interface SortableCardProps {
 export function SortableCard({ tabId, card }: SortableCardProps) {
   const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({
     id: card.id,
+    data: { type: 'card', tabId },
   });
 
   // Strip scaleX/scaleY — CSS columns layout breaks under scale transforms

@@ -101,6 +101,11 @@
     "expand": "展開",
     "collapse": "收合"
   },
+  "moveCard": {
+    "plaintextTitle": "移出加密類別",
+    "plaintextBody": "此卡片將離開加密類別，內容將以<strong>明文</strong>儲存，不再受密碼保護。是否繼續？",
+    "confirmMove": "確認移動"
+  },
   "card": {
     "titlePlaceholder": "標題",
     "encryptedBadge": "此卡片已加密",

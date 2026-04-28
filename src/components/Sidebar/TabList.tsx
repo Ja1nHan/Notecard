@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { DndContext, DragOverlay, useSensor, useSensors } from '@dnd-kit/core';
-import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useAppStore } from '../../stores/useAppStore';
 import { TabItem } from './TabItem';
-import { AppPointerSensor } from '../../lib/dnd-sensor';
 import { PasswordModal } from '../Modal/PasswordModal';
 import { ConfirmModal } from '../Modal/ConfirmModal';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +17,6 @@ export function TabList() {
   const tabs = useAppStore((s) => s.tabs);
   const activeTabId = useAppStore((s) => s.activeTabId);
   const deleteTab = useAppStore((s) => s.deleteTab);
-  const reorderTabs = useAppStore((s) => s.reorderTabs);
   const sessionUnlocked = useAppStore((s) => s.sessionUnlocked);
   const fileLock = useAppStore((s) => s.fileLock);
   const unlockSession = useAppStore((s) => s.unlockSession);
@@ -29,12 +25,7 @@ export function TabList() {
   const unlockTab = useAppStore((s) => s.unlockTab);
   const removeTabEncryption = useAppStore((s) => s.removeTabEncryption);
 
-  const [draggingId, setDraggingId] = useState<string | null>(null);
   const [pwModal, setPwModal] = useState<PwModalState>(null);
-
-  const sensors = useSensors(
-    useSensor(AppPointerSensor, { activationConstraint: { distance: 8 } }),
-  );
 
   function ensureSessionThen(action: () => Promise<void>) {
     if (sessionUnlocked) {
@@ -67,19 +58,6 @@ export function TabList() {
     setTabToDelete(tabId);
   }
 
-  const draggingTab = tabs.find((t) => t.id === draggingId);
-
-  function handleDragStart({ active }: DragStartEvent) {
-    setDraggingId(active.id as string);
-  }
-
-  function handleDragEnd({ active, over }: DragEndEvent) {
-    setDraggingId(null);
-    if (over && active.id !== over.id) {
-      reorderTabs(active.id as string, over.id as string);
-    }
-  }
-
   async function handleUnlockSessionConfirm(password: string) {
     const ok = await unlockSession(password);
     if (!ok) throw new Error(t('tabList.wrongPassword'));
@@ -108,36 +86,17 @@ export function TabList() {
 
   return (
     <>
-      <DndContext
-        sensors={sensors}
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        onDragCancel={() => setDraggingId(null)}
-      >
-        <SortableContext items={tabs.map((t) => t.id)} strategy={verticalListSortingStrategy}>
-          {tabs.map((tab) => (
-            <TabItem
-              key={tab.id}
-              tab={tab}
-              isActive={tab.id === activeTabId}
-              onEncryptClick={handleEncryptClick}
-              onDeleteClick={handleDeleteClick}
-            />
-          ))}
-        </SortableContext>
-        <DragOverlay dropAnimation={null}>
-          {draggingTab ? (
-            <div className="tab-drag-overlay">
-              <TabItem
-                tab={draggingTab}
-                isActive={draggingTab.id === activeTabId}
-                onEncryptClick={handleEncryptClick}
-                onDeleteClick={handleDeleteClick}
-              />
-            </div>
-          ) : null}
-        </DragOverlay>
-      </DndContext>
+      <SortableContext items={tabs.map((t) => t.id)} strategy={verticalListSortingStrategy}>
+        {tabs.map((tab) => (
+          <TabItem
+            key={tab.id}
+            tab={tab}
+            isActive={tab.id === activeTabId}
+            onEncryptClick={handleEncryptClick}
+            onDeleteClick={handleDeleteClick}
+          />
+        ))}
+      </SortableContext>
 
       {pwModal?.mode === 'unlock_session' && (
         <PasswordModal

@@ -101,6 +101,11 @@
     "expand": "展开",
     "collapse": "折叠"
   },
+  "moveCard": {
+    "plaintextTitle": "移出加密类别",
+    "plaintextBody": "此卡片将离开加密类别，内容将以<strong>明文</strong>保存，不再受密码保护。是否继续？",
+    "confirmMove": "确认移动"
+  },
   "card": {
     "titlePlaceholder": "标题",
     "encryptedBadge": "此卡片已被加密",

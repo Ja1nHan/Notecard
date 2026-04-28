@@ -46,7 +46,9 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
   const currentLang = i18n.language as Language;
 
   useEffect(() => {
-    getVersion().then(setAppVersion).catch(() => {});
+    getVersion()
+      .then(setAppVersion)
+      .catch(() => {});
   }, []);
 
   async function handleCheckUpdate() {

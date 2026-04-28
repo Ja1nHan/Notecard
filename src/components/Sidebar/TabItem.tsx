@@ -17,7 +17,12 @@ export function TabItem({ tab, isActive, onEncryptClick, onDeleteClick }: TabIte
   const { t } = useTranslation();
   const nameRef = useRef<HTMLSpanElement>(null);
 
-  const { setNodeRef, listeners, transform, transition, isDragging } = useSortable({ id: tab.id });
+  const { setNodeRef, listeners, transform, transition, isDragging, isOver, active } = useSortable({
+    id: tab.id,
+    data: { type: 'tab' },
+  });
+  // 仅当拖拽的是卡片时才高亮（拖 Tab 本身重排时不高亮）
+  const isCardDropTarget = isOver && active?.data.current?.type === 'card';
 
   const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
@@ -94,7 +99,9 @@ export function TabItem({ tab, isActive, onEncryptClick, onDeleteClick }: TabIte
       ref={setNodeRef}
       style={style}
       data-tab-id={tab.id}
-      className={['tab-item', isActive ? 'active' : ''].filter(Boolean).join(' ')}
+      className={['tab-item', isActive ? 'active' : '', isCardDropTarget ? 'card-drop-target' : '']
+        .filter(Boolean)
+        .join(' ')}
       onClick={handleItemClick}
       {...listeners}
     >

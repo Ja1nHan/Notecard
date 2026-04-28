@@ -43,3 +43,7 @@ Thumbs.db
 
 # npm lock (project uses pnpm)
 package-lock.json
+
+# Landing page (deployed separately, not part of app repo)
+landing/
+NoteCard.zip

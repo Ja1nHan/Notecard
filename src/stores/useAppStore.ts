@@ -44,6 +44,7 @@ interface AppState {
   lockTab: (tabId: string) => Promise<void>;
   unlockTab: (tabId: string) => Promise<void>;
   removeTabEncryption: (tabId: string) => void;
+  moveCard: (fromTabId: string, toTabId: string, cardId: string) => void;
 
   // Phase 6: 文件生命周期
   loadFromFile: (file: NCardFile) => void;
@@ -168,6 +169,24 @@ export const useAppStore = create<AppState>((set, get) => ({
       const [moved] = newCards.splice(fromIndex, 1);
       newCards.splice(toIndex, 0, moved);
       tabs[tabIndex] = { ...tabs[tabIndex], cards: newCards };
+      return { tabs };
+    }),
+
+  moveCard: (fromTabId, toTabId, cardId) =>
+    set((s) => {
+      const tabs = [...s.tabs];
+      const fromIdx = tabs.findIndex((t) => t.id === fromTabId);
+      const toIdx = tabs.findIndex((t) => t.id === toTabId);
+      if (fromIdx < 0 || toIdx < 0 || fromIdx === toIdx) return {};
+      const fromCards = [...tabs[fromIdx].cards];
+      const cardIdx = fromCards.findIndex((c) => c.id === cardId);
+      if (cardIdx < 0) return {};
+      const [card] = fromCards.splice(cardIdx, 1);
+      // 重置运行时临时解锁状态，移入新 Tab 后需重新鉴权
+      const movedCard = { ...card, cardUnlocked: false };
+      const toCards = [movedCard, ...tabs[toIdx].cards];
+      tabs[fromIdx] = { ...tabs[fromIdx], cards: fromCards };
+      tabs[toIdx] = { ...tabs[toIdx], cards: toCards };
       return { tabs };
     }),
 
