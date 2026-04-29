@@ -87,6 +87,17 @@ export function CardBody({
       onBlur={(e) => {
         onChange(normalizeText((e.currentTarget as HTMLDivElement).innerText));
       }}
+      onPaste={(e) => {
+        e.preventDefault();
+        // 只取纯文本，丢弃颜色、字体等富文本格式
+        // 规范化换行符：Windows 剪贴板可能带 \r\n 或单独 \r
+        const plain = e.clipboardData
+          .getData('text/plain')
+          .replace(/\r\n/g, '\n')
+          .replace(/\r/g, '\n');
+        // insertText 在光标位置插入并触发 input 事件，支持撤销
+        document.execCommand('insertText', false, plain);
+      }}
     />
   );
 }
